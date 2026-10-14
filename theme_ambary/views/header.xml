@@ -2,7 +2,7 @@
 <odoo>
 
 <!--
-    Ambary header: announcement bar over a three-column main bar
+    Ambary header: a three-column main bar
     (menu | centred logo | utilities).
 
     Ships active="False" on purpose. Every header variant replaces the same
@@ -23,23 +23,6 @@
             <t t-set="_navbar_classes" t-valuef="o_ambary_header d-none d-lg-block p-0"/>
 
             <div id="o_main_nav" class="o_main_nav w-100">
-
-                <!-- Announcement bar. o_header_hide_on_scroll lets it collapse
-                     away while the main bar stays pinned. -->
-                <div class="o_header_hide_on_scroll">
-                    <div aria-label="Top"
-                         class="o_ambary_topbar o_colored_level o_cc o_cc5"
-                         t-if="is_view_active('website.header_text_element')">
-                        <ul class="navbar-nav container justify-content-center mb-0">
-                            <t t-call="website.placeholder_header_text_element">
-                                <t t-set="_txt_elt_content" t-valuef="sentence"/>
-                                <t t-set="_item_class" t-valuef="d-flex align-items-center"/>
-                                <t t-set="_div_class" t-valuef="o_ambary_eyebrow"/>
-                            </t>
-                        </ul>
-                    </div>
-                </div>
-
                 <!-- Main bar. o_grid_header_3_cols is Odoo's 1fr/auto/1fr grid,
                      which is what centres the logo regardless of how wide the
                      menu and the utilities are. -->

@@ -1,8 +1,6 @@
 <svg width="234" height="60" viewBox="0 0 234 60" xmlns="http://www.w3.org/2000/svg">
   <path fill="#fff" fill-opacity=".5" d="M0 5h234v50H0z"/>
-  <path fill="#0F3D3A" d="M0 5h234v9H0z"/>
-  <rect x="94" y="8" width="46" height="3" rx="1.5" fill="#FAF7EC" fill-opacity=".85"/>
-  <path fill="#FAF7EC" d="M0 14h234v20H0z"/>
+  <path fill="#FAF7EC" d="M0 5h234v29H0z"/>
   <g fill="#0F3D3A">
     <rect x="14" y="22" width="18" height="4" rx="2"/>
     <rect x="37" y="22" width="24" height="4" rx="2"/>

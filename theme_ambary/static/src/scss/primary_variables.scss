@@ -23,7 +23,6 @@ $o-ambary-muted:      #506567;  // secondary text      oklch(.49 .025 204)
 $o-ambary-mist:       #8AC4C0;  // gradient/illustration only
 $o-ambary-mist-bg:    #DBF3F1;  // soft card/section surface  oklch(.947 .026 190)
 $o-ambary-sand:       #F7DCC3;  // gradient/illustration only
-$o-ambary-clay:       #9B5455;  // hairline above the announcement bar
 
 // -----------------------------------------------------------------------------
 // Measured type scale. Everything in the chrome is 14px; only display headings
@@ -44,8 +43,6 @@ $o-ambary-footer-link-gap:     1rem;
 
 $o-ambary-radius:            7px;       // --radius; inputs. Buttons are pills.
 $o-ambary-card-radius:       1.5rem;    // 24px, measured on the category cards
-$o-ambary-hairline-width:    3px;
-$o-ambary-topbar-padding-y:  .375rem;   // announcement strip is 25px tall
 $o-ambary-mainbar-padding-y: 1rem;      // nav row is 80px tall
 
 // -----------------------------------------------------------------------------
@@ -57,7 +54,7 @@ $o-ambary-mainbar-padding-y: 1rem;      // nav row is 80px tall
 //
 //   o_cc1 bg = o-color-4 (white)        o_cc2 bg = o-color-3 (cream)
 //   o_cc3 bg = o-color-2 (terracotta)   o_cc4 bg = o-color-1 (button teal)
-//   o_cc5 bg = o-color-5 (deep teal)  <- announcement bar, dark bands
+//   o_cc5 bg = o-color-5 (deep teal)  <- dark bands
 //
 // mist and sand stay plain constants: gradient colors, not surfaces.
 // -----------------------------------------------------------------------------
