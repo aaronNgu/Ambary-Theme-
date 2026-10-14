@@ -1,0 +1,10 @@
+//==============================================================================
+// Ambary Gardens - derived tokens
+//==============================================================================
+// Appended to web._assets_secondary_variables, which runs after the palette has
+// been resolved. o-color() and o-website-value() are available here; they are
+// not in primary_variables.scss.
+
+// Hairline rules. No reference token for these, derived from the ground color.
+$o-ambary-rule:     rgba(o-color('o-color-1'), .16) !default;
+$o-ambary-on-cream: o-color('o-color-1') !default;

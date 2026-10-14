@@ -1,0 +1,13 @@
+//==============================================================================
+// Ambary Gardens - Bootstrap variable overrides
+//==============================================================================
+// Prepended into web._assets_frontend_helpers so it lands before
+// bootstrap/_variables.scss, whose values are all !default.
+// Both values measured off the live site.
+
+$headings-font-weight: 600;  // Bootstrap defaults to 500
+$btn-font-weight:      700;
+
+// Category cards measure 24px. Set here rather than per-card in the editor so
+// every s_card in the site matches without anyone remembering to.
+$card-border-radius: 1.5rem;

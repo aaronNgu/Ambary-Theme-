@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+    Full-bleed hero whose artwork is a real image element, not a CSS background.
+    The image participates in layout and scrolls with the section; there is no
+    background-attachment, parallax transform, or scroll listener.  CSS Grid
+    layers the copy and scrim over it without removing the image from the flow.
+-->
+<template id="s_ambary_hero" name="Ambary Hero">
+    <section class="s_ambary_hero o_colored_level">
+        <img src="/web/image/website.s_banner_default_image"
+             class="s_ambary_hero_media img img-fluid"
+             alt="Ambary Gardens products"
+             loading="eager"
+             fetchpriority="high"/>
+
+        <div class="s_ambary_hero_content container d-flex align-items-center py-5">
+            <div class="s_ambary_hero_copy">
+                <h1 class="mb-4">CBD made by the people who grow the hemp.</h1>
+                <p class="s_ambary_hero_lead mb-4">
+                    Grown in our own Colorado greenhouses.
+                    Cared for by hand, from seed to bottle.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/shop" class="btn btn-primary btn-lg">
+                        Shop CBD <i class="fa fa-arrow-right ms-2"/>
+                    </a>
+                    <a href="#why-ambary" class="btn btn-outline-primary btn-lg">Why Ambary</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

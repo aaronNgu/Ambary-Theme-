@@ -1,0 +1,459 @@
+//==============================================================================
+// Ambary Gardens - frontend styling
+//==============================================================================
+// Consumes tokens only. Brand decisions belong in primary_variables.scss.
+// Sizes and weights here are the live site's computed values.
+
+:root {
+    --ambary-cream:             #{$o-ambary-cream};
+    --ambary-btn-teal:          #{$o-ambary-btn-teal};
+    --ambary-deep-teal:         #{$o-ambary-deep-teal};
+    --ambary-terracotta:        #{$o-ambary-terracotta};
+    --ambary-mist:              #{$o-ambary-mist};
+    --ambary-mist-bg:           #{$o-ambary-mist-bg};
+    --ambary-sand:              #{$o-ambary-sand};
+    --ambary-muted:             #{$o-ambary-muted};
+    --ambary-clay:              #{$o-ambary-clay};
+
+    --ambary-rule:              #{$o-ambary-rule};
+    --ambary-radius:            #{$o-ambary-radius};
+    --ambary-ui-size:           #{$o-ambary-ui-size};
+
+    --ambary-eyebrow-size:      #{$o-ambary-eyebrow-size};
+    --ambary-eyebrow-tracking:  #{$o-ambary-eyebrow-tracking};
+    --ambary-hairline-width:    #{$o-ambary-hairline-width};
+}
+
+// Heading tracking. Odoo has no website value for letter-spacing, and only one
+// headings-line-height, so the split between the two display levels and the
+// smaller headings is handled here. Values measured off the live site.
+h1, .h1, .display-1 { letter-spacing: -.045em; }   // -4.14px at 92px
+h2, .h2, .display-2 { letter-spacing: -.035em; }   // -2.1px at 60px
+
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    letter-spacing: normal;
+    line-height: 1.4;   // 28px at 20px
+}
+
+// Small caps, wide tracking. Announcement bar and section eyebrows.
+.o_ambary_eyebrow {
+    font-size: var(--ambary-eyebrow-size);
+    font-weight: $o-ambary-eyebrow-weight;
+    letter-spacing: var(--ambary-eyebrow-tracking);
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+//------------------------------------------------------------------------------
+// Header
+//------------------------------------------------------------------------------
+.o_ambary_header {
+    border: 0;
+    font-size: var(--ambary-ui-size);
+
+    .o_ambary_topbar {
+        border-top: var(--ambary-hairline-width) solid var(--ambary-clay);
+        padding-block: $o-ambary-topbar-padding-y;
+
+        // Stated outright rather than inherited from .navbar-expand-lg, so the
+        // bar cannot silently go vertical again.
+        > .navbar-nav {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .s_text_block {
+            margin: 0;
+        }
+    }
+
+    .o_ambary_mainbar {
+        padding-block: $o-ambary-mainbar-padding-y;
+    }
+
+    // Menu. The live site uses flex/space-between; a 1fr auto 1fr grid centres
+    // the logo more reliably when the two side groups differ in width.
+    .o_ambary_nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: $o-ambary-nav-gap;
+
+        > .nav-item > .nav-link {
+            padding-inline: 0;
+            font-size: $o-ambary-ui-size;
+            font-weight: $o-ambary-nav-weight;
+            white-space: nowrap;
+        }
+    }
+
+    .o_ambary_brand {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .o_ambary_utils {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: $o-ambary-utils-gap;
+        font-size: $o-ambary-ui-size;
+
+        > li {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    // Icon buttons: search, account, cart.
+    .o_ambary_icon_btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        transition: background-color .15s ease-in-out;
+
+        &:hover,
+        &:focus-visible {
+            background-color: var(--ambary-rule);
+        }
+    }
+
+    // The CTA placeholder renders an editable oe_structure with a .btn_cta
+    // inside. Here it reads as a plain link ("Test results"), so the button
+    // chrome comes off but the element stays editable.
+    .o_ambary_cta {
+        .oe_structure > section,
+        .oe_structure .container {
+            padding: 0;
+            margin: 0;
+        }
+
+        .btn_cta {
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: inherit;
+            font-size: $o-ambary-ui-size;
+            font-weight: $o-ambary-nav-weight;
+
+            &:hover,
+            &:focus-visible {
+                background: transparent;
+                color: inherit;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+//------------------------------------------------------------------------------
+// Footer
+//------------------------------------------------------------------------------
+.o_ambary_footer {
+    font-size: $o-ambary-ui-size;
+    line-height: $o-ambary-footer-line-height;
+
+    .o_ambary_footer_blurb {
+        max-width: 26rem;
+        margin-bottom: 1.5rem;
+        color: var(--ambary-muted);
+    }
+
+    .o_ambary_footer_address {
+        font-weight: 700;
+    }
+
+    // Same size as the links below it; the heading reads as a heading through
+    // weight alone.
+    .o_ambary_footer_title {
+        margin-bottom: 1.5rem;
+        font-size: $o-ambary-ui-size;
+        font-weight: $o-ambary-footer-title-weight;
+        line-height: 1.43;
+    }
+
+    .o_ambary_footer_links {
+        font-size: $o-ambary-ui-size;
+
+        li + li {
+            margin-top: $o-ambary-footer-link-gap;
+        }
+
+        a {
+            color: var(--ambary-muted);
+            text-decoration: none;
+
+            &:hover,
+            &:focus-visible {
+                color: var(--ambary-deep-teal);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// Legal bar
+.o_ambary_copyright {
+    border-top: 1px solid var(--ambary-rule);
+    font-size: $o-ambary-ui-size;
+
+    .container {
+        padding-block: 1.5rem;
+    }
+
+    .o_footer_copyright_name {
+        color: var(--ambary-muted);
+    }
+
+    .o_ambary_legal a {
+        color: var(--ambary-muted);
+        text-decoration: none;
+
+        + a {
+            margin-left: 1.5rem;
+        }
+
+        &:hover,
+        &:focus-visible {
+            color: var(--ambary-deep-teal);
+            text-decoration: underline;
+        }
+    }
+}
+
+//------------------------------------------------------------------------------
+// Cards
+//------------------------------------------------------------------------------
+// Odoo's card snippets title with h5. The design's card title is 20px/700,
+// which is the h3 step, so retarget it here instead of asking editors to change
+// the heading level on every card.
+.s_card .card-title {
+    font-size: $o-ambary-ui-size * 1.4286;   // 20px
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+// The soft surface behind the category cards. Not a color combination: it is a
+// sixth surface and Odoo only has five slots.
+.o_ambary_bg_soft {
+    background-color: var(--ambary-mist-bg) !important;
+}
+
+//------------------------------------------------------------------------------
+// Flowing image hero (s_ambary_hero)
+//------------------------------------------------------------------------------
+// Grid lets the real <img> establish the section's dimensions while the scrim
+// and editable copy occupy the same cell. Unlike Odoo's background/parallax
+// intros, this has no fixed background or scroll transform.
+.s_ambary_hero {
+    display: grid;
+    overflow: hidden;
+    background: var(--ambary-sand);
+
+    > * {
+        grid-area: 1 / 1;
+    }
+
+    &::after {
+        content: "";
+        z-index: 1;
+        grid-area: 1 / 1;
+        pointer-events: none;
+        background: linear-gradient(
+            90deg,
+            rgba($o-ambary-sand, .96) 0%,
+            rgba($o-ambary-sand, .72) 40%,
+            rgba($o-ambary-sand, 0) 72%
+        );
+    }
+
+    .s_ambary_hero_media {
+        z-index: 0;
+        display: block;
+        width: 100%;
+        height: 55vw;
+        min-height: 38.75rem;
+        max-height: 43.75rem;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .s_ambary_hero_content {
+        z-index: 2;
+        min-height: 38.75rem;
+        color: var(--ambary-deep-teal);
+        pointer-events: none;
+    }
+
+    .s_ambary_hero_copy {
+        width: 100%;
+        max-width: 42rem;
+        pointer-events: auto;
+    }
+
+    h1 {
+        max-width: 18ch;
+        font-size: clamp(3rem, 5.5vw, 4.5rem);
+        color: inherit;
+    }
+
+    .s_ambary_hero_lead {
+        max-width: 38rem;
+        color: inherit;
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 767.98px) {
+        &::after {
+            background: linear-gradient(
+                90deg,
+                rgba($o-ambary-sand, .96),
+                rgba($o-ambary-sand, .72)
+            );
+        }
+
+        .s_ambary_hero_media {
+            height: 100%;
+            min-height: 36rem;
+            max-height: none;
+        }
+
+        .s_ambary_hero_content {
+            min-height: 36rem;
+        }
+
+        .s_ambary_hero_lead {
+            font-size: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+    }
+
+    @media (max-width: 479.98px) {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+}
+
+//------------------------------------------------------------------------------
+// Compact nursery story (s_ambary_intro)
+//------------------------------------------------------------------------------
+.s_ambary_intro {
+    border-block: 1px solid var(--ambary-rule);
+
+    .s_ambary_intro_heading {
+        max-width: 19ch;
+        font-size: 2rem;
+        line-height: 1.15;
+    }
+
+    .s_ambary_intro_story {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+//------------------------------------------------------------------------------
+// Category grid (s_ambary_categories)
+//------------------------------------------------------------------------------
+.s_ambary_categories {
+
+    // The title link stretches over the full card on the live site. Disable its
+    // invisible hit area only while editing so the underlying <img> can be
+    // selected and replaced with Odoo's standard Image tools.
+    body.editor_enable & .stretched-link::after {
+        pointer-events: none;
+    }
+
+    // Heading row: title left, link right, baselines aligned. Stacks below md
+    // rather than letting the link crowd the heading.
+    .s_ambary_categories_head {
+        @media (max-width: 767.98px) {
+            align-items: flex-start;
+        }
+    }
+
+    .s_card {
+        overflow: hidden;   // clips the image to the 24px card radius
+
+        .card-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+        }
+    }
+}
+
+// Small, heavy, underlined text link. Used for "Shop everything" and anywhere
+// else a section needs a secondary action beside its heading.
+.o_ambary_link_strong {
+    font-size: $o-ambary-ui-size;
+    font-weight: 700;
+    text-decoration: underline;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: none;
+    }
+}
+
+//------------------------------------------------------------------------------
+// Product card (dynamic_filter_template_product_product_ambary)
+//------------------------------------------------------------------------------
+// Heading supplied by s_dynamic_snippet_products_title_ambary. It deliberately
+// sits outside the record template so it is rendered once per section rather
+// than once per product or carousel slide.
+.s_dynamic_snippet_products .s_dynamic_snippet_title {
+    .o_ambary_product_heading {
+        max-width: 11ch;
+    }
+}
+
+// Same surface as the category cards, but the markup is Odoo's dynamic-snippet
+// shape rather than s_card, so the rules are repeated rather than shared.
+.o_ambary_product_card {
+    overflow: hidden;
+    border-radius: $o-ambary-card-radius;
+
+    .o_ambary_product_img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 1.25rem 1.5rem 1.5rem;
+    }
+
+    .card-title {
+        font-size: $o-ambary-ui-size * 1.4286;   // 20px
+        font-weight: 700;
+        line-height: 1.4;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    .card-text {
+        color: var(--ambary-muted);
+    }
+
+    .o_ambary_product_price {
+        font-size: $o-ambary-ui-size;
+        font-weight: 700;
+    }
+}

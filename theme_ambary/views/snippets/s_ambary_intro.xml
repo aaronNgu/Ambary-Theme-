@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Compact story strip: heading and body sit alongside each other on desktop
+     and stack on mobile. Standard padding classes remain editable in Odoo. -->
+<template id="s_ambary_intro" name="Ambary Intro">
+    <section class="s_ambary_intro o_cc o_cc2 o_colored_level pt32 pb32"
+             data-snippet="s_ambary_intro" data-name="Ambary Intro">
+        <div class="container">
+            <div class="row align-items-center gy-3">
+                <div class="col-lg-4">
+                    <h2 class="s_ambary_intro_heading mb-0">Our story starts in a Colorado nursery.</h2>
+                </div>
+                <div class="col-lg-8">
+                    <p class="s_ambary_intro_story mb-0">
+                        Our founder spent years running a local garden center in
+                        Kittredge, Colorado, growing everything from houseplants to trees.
+                        That experience laid the roots for Ambary Gardens. Today, our
+                        team grows hemp in our own Colorado greenhouses, where every
+                        plant is tended and harvested by hand.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

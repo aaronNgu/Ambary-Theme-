@@ -1,0 +1,150 @@
+//==============================================================================
+// Ambary Gardens - design tokens, layers 1 and 2
+//==============================================================================
+// Measured off the live target, https://staging-ambary-gardens-4f38445e.ploy.build
+// (computed styles, oklch converted to sRGB hex) - NOT off the :root token block
+// in reference-theme/global.scss. That block declares Manrope as --font-body and
+// weight 500 for headings; the site actually renders bilo and weight 600. Where
+// the two disagree, the live site wins.
+//
+// Loaded into web._assets_primary_variables with the default *append* directive,
+// so this file lands after website's primary_variables.scss. Everything there is
+// !default, so a later plain assignment here wins - and o-make-palette() /
+// $o-color-palettes / $o-theme-font-configs already exist by this point.
+
+// -----------------------------------------------------------------------------
+// Brand constants. Raw values live here and nowhere else.
+// -----------------------------------------------------------------------------
+$o-ambary-btn-teal:   #005358;  // buttons, links      oklch(.4 .072 201)
+$o-ambary-terracotta: #DD7F53;  // accent              oklch(.69 .13 45)
+$o-ambary-cream:      #FCFAF4;  // header/footer/page  oklch(.985 .008 95)
+$o-ambary-deep-teal:  #0C373B;  // dark bands, body text oklch(.31 .046 204)
+$o-ambary-muted:      #506567;  // secondary text      oklch(.49 .025 204)
+$o-ambary-mist:       #8AC4C0;  // gradient/illustration only
+$o-ambary-mist-bg:    #DBF3F1;  // soft card/section surface  oklch(.947 .026 190)
+$o-ambary-sand:       #F7DCC3;  // gradient/illustration only
+$o-ambary-clay:       #9B5455;  // hairline above the announcement bar
+
+// -----------------------------------------------------------------------------
+// Measured type scale. Everything in the chrome is 14px; only display headings
+// are large. Sizes here are the live site's computed values.
+// -----------------------------------------------------------------------------
+$o-ambary-ui-size:           .875rem;   // 14px - nav, footer, buttons
+$o-ambary-nav-weight:        600;
+$o-ambary-nav-gap:           1.75rem;   // 28px
+$o-ambary-utils-gap:         1rem;      // 16px
+
+$o-ambary-eyebrow-size:      .6875rem;  // 11px
+$o-ambary-eyebrow-weight:    600;
+$o-ambary-eyebrow-tracking:  .18em;     // 1.98px at 11px
+
+$o-ambary-footer-title-weight: 700;
+$o-ambary-footer-line-height:  1.7;     // 24px at 14px
+$o-ambary-footer-link-gap:     1rem;
+
+$o-ambary-radius:            7px;       // --radius; inputs. Buttons are pills.
+$o-ambary-card-radius:       1.5rem;    // 24px, measured on the category cards
+$o-ambary-hairline-width:    3px;
+$o-ambary-topbar-padding-y:  .375rem;   // announcement strip is 25px tall
+$o-ambary-mainbar-padding-y: 1rem;      // nav row is 80px tall
+
+// -----------------------------------------------------------------------------
+// Layer 2 - color palette
+//
+// Note which teal goes where: buttons and links are #005358, dark bands and body
+// text are #0C373B. In Odoo o-color-1 drives btn-primary and o-color-5 is the
+// cc5 background, so the two teals map to those two slots respectively.
+//
+//   o_cc1 bg = o-color-4 (white)        o_cc2 bg = o-color-3 (cream)
+//   o_cc3 bg = o-color-2 (terracotta)   o_cc4 bg = o-color-1 (button teal)
+//   o_cc5 bg = o-color-5 (deep teal)  <- announcement bar, dark bands
+//
+// mist and sand stay plain constants: gradient colors, not surfaces.
+// -----------------------------------------------------------------------------
+$o-color-palettes: map-merge($o-color-palettes, (
+    'ambary': o-make-palette($o-ambary-btn-teal, $o-ambary-terracotta, (
+        'o-color-3': $o-ambary-cream,
+        'o-color-5': $o-ambary-deep-teal,
+
+        'menu': 2,       // cream header
+        'footer': 2,     // cream footer
+        'copyright': 2,  // cream legal bar
+    )),
+));
+
+// -----------------------------------------------------------------------------
+// Fonts
+//
+// Live site: body/nav/buttons/h3+ = bilo; h1 and h2 = Fraunces 600.
+//
+// bilo is a licensed Latinotype face served from the WordPress child theme, so
+// it is not wired up yet - see static/src/fonts/README. Manrope stands in until
+// the woff2 files land; swapping is the four 'font' keys below plus one entry in
+// $o-theme-font-configs.
+// -----------------------------------------------------------------------------
+$o-theme-font-configs: map-merge($o-theme-font-configs, (
+    'Manrope': (
+        'family': ('Manrope', sans-serif),
+        'url': 'Manrope:200,300,400,500,600,700,800',
+    ),
+    'Fraunces': (
+        'family': ('Fraunces', Georgia, serif),
+        'url': 'Fraunces:300,400,500,600,700',
+    ),
+));
+
+// -----------------------------------------------------------------------------
+// Layer 1 - website values palette
+// -----------------------------------------------------------------------------
+$o-website-values-palettes: (
+    (
+        'color-palettes-name': 'ambary',
+
+        'font': 'Manrope',            // -> 'Bilo'
+        'navbar-font': 'Manrope',     // -> 'Bilo'
+        'buttons-font': 'Manrope',    // -> 'Bilo'
+        'headings-font': 'Fraunces',
+        // Only h1/h2 are the serif on the live site; h3 renders bilo 20px/700.
+        'h3-font': 'Manrope',         // -> 'Bilo'
+        'h4-font': 'Manrope',         // -> 'Bilo'
+        'h5-font': 'Manrope',         // -> 'Bilo'
+        'h6-font': 'Manrope',         // -> 'Bilo'
+
+        'headings-line-height': 1,    // h1 90.16/92, h2 60/60. h3+ overridden in
+                                      // theme.scss; Odoo has only one key here.
+        'body-line-height': 1.7,      // 24px at 14px
+
+        // Measured heading scale. Odoo reads these in website's
+        // bootstrap_overridden.scss, falling back to the h*-multipliers.
+        // h1/h2/h3 are measured; h4-h6 do not appear on the homepage and are
+        // extrapolated to keep the hierarchy descending from h3's 20px.
+        'h1-font-size': 5.75rem,      // 92px, Fraunces 600
+        'h2-font-size': 3.75rem,      // 60px, Fraunces 600
+        'h3-font-size': 1.25rem,      // 20px, body font 700
+        'h4-font-size': 1.125rem,     // extrapolated
+        'h5-font-size': 1rem,         // extrapolated
+        'h6-font-size': .875rem,      // extrapolated
+        'display-1-font-size': 5.75rem,
+        'display-2-font-size': 3.75rem,
+
+        'header-template': 'ambary',
+        'header-links-style': 'default',
+        'logo-height': 2.5rem,        // brand block is 119x~40 in an 80px row
+
+        'footer-template': 'ambary',
+
+        'link-underline': 'hover',
+
+        // Buttons are fully rounded pills at 14px/700.
+        'btn-border-radius': 2rem,
+        'btn-border-radius-lg': 2rem,
+        'btn-font-size': $o-ambary-ui-size,
+        'btn-padding-y': .625rem,
+        'btn-padding-x': 1.5rem,
+        'btn-padding-y-lg': .875rem,
+        'btn-padding-x-lg': 2rem,
+
+        'input-border-radius': $o-ambary-radius,
+    ),
+);
+$o-website-values-palette-number: 1;

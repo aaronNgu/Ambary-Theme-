@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+    Ambary footer: brand block + three link columns, over a legal bar.
+
+    Like the header variants, footer variants all replace the same
+    //div[@id='footer'] node, so this ships inactive and is switched on by
+    theme.utils._theme_ambary_post_copy or by the Theme > Footer > Template
+    picker.
+
+    The content sits in an oe_structure, which is what makes it editable and
+    drag-and-droppable in the website editor. Everything below is a starting
+    point, not a locked layout; edits made in the editor are stored per
+    website and survive module upgrades.
+-->
+<template id="template_footer_ambary" inherit_id="website.layout"
+          name="Ambary" active="False">
+    <xpath expr="//div[@id='footer']" position="replace">
+        <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+            <section class="s_text_block o_ambary_footer pt64 pb40"
+                     data-snippet="s_text_block" data-name="Text">
+                <div class="container">
+                    <div class="row gy-5">
+
+                        <!-- Brand block -->
+                        <div class="col-lg-5">
+                            <a href="/" class="o_ambary_footer_logo d-inline-block mb-4">
+                                <span t-field="website.logo"
+                                      t-options="{'widget': 'image', 'width': 190, 'height': 80}"
+                                      role="img"
+                                      t-att-aria-label="'Logo of %s' % website.name"
+                                      t-att-title="website.name"/>
+                            </a>
+                            <p class="o_ambary_footer_blurb">Premium CBD products grown and made with care in Kittredge, Colorado.</p>
+                            <p class="o_ambary_footer_address mb-0">26479 State Highway 74 &#183; Kittredge, CO 80457</p>
+                        </div>
+
+                        <!-- Link columns -->
+                        <div class="col-6 col-lg-2 offset-lg-1">
+                            <h6 class="o_ambary_footer_title">Shop</h6>
+                            <ul class="o_ambary_footer_links list-unstyled mb-0">
+                                <li><a href="/shop">All products</a></li>
+                                <li><a href="/shop/category/daily-cbd">Daily CBD</a></li>
+                                <li><a href="/shop/category/gummies">Gummies</a></li>
+                                <li><a href="/shop/category/topical-care">Topical care</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <h6 class="o_ambary_footer_title">Learn</h6>
+                            <ul class="o_ambary_footer_links list-unstyled mb-0">
+                                <li><a href="/aboutus">About</a></li>
+                                <li><a href="/faq">FAQ</a></li>
+                                <li><a href="/test-results">Test results</a></li>
+                                <li><a href="/blog">News</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <h6 class="o_ambary_footer_title">Support</h6>
+                            <ul class="o_ambary_footer_links list-unstyled mb-0">
+                                <li><a href="/contactus">Contact</a></li>
+                                <li><a href="/helping-hands">Helping Hands</a></li>
+                                <li><a href="/wholesale">Wholesale</a></li>
+                                <li><a href="/my">My account</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </xpath>
+</template>
+
+<!--
+    Legal bar. This is a separate view because the copyright strip lives outside
+    #footer, in web.frontend_layout, and is not governed by the footer-template
+    variable. It is listed alongside the footer in the same we-button so that
+    switching to another footer template turns both off together.
+
+    Surgical xpaths rather than replacing the whole row: portal.frontend_layout
+    injects the language selector after .o_footer_copyright_name, and
+    website.layout sets t-if="not editable" on the brand-promotion column.
+    Replacing the row would silently drop both.
+-->
+<template id="footer_copyright_ambary" inherit_id="website.layout"
+          name="Ambary Legal Bar" active="False">
+    <xpath expr="//div[hasclass('o_footer_copyright')]" position="attributes">
+        <attribute name="class" add="o_ambary_copyright" separator=" "/>
+    </xpath>
+    <xpath expr="//t[@t-call='web.brand_promotion']/.." position="before">
+        <div class="col-sm-auto text-center text-sm-end o_ambary_legal">
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <a href="/refund-policy">Refund policy</a>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

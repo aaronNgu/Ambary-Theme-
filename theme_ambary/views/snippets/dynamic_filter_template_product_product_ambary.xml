@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+    Render template for Odoo's dynamic Products snippet, styled to match
+    s_ambary_categories.
+
+    No Python and no website.snippet.filter record needed: this only changes how
+    each product is drawn. Which products appear is chosen in the editor through
+    the stock block's Filter / Category / Tags / Product Names options, which
+    build a search domain client-side and pass it to
+    website.snippet.filter._render().
+
+    Discovery is by naming. The controller at website/controllers/main.py:442
+    searches ir.ui.view for `key ilike '.dynamic_filter_template_'`, then narrows
+    with `_<model>_`, so the key has to contain `_product_product_` for this to
+    be offered on product filters. Nothing registers it explicitly.
+
+    Context provided per iteration:
+      data['_record']         the product recordset (website_url, id, ...)
+      data['display_name']    from the filter's field_names
+      data['description_sale']
+      data['image_512']
+      data['price'], is_sample   injected by website_sale's override of
+                                 _filter_records_to_values
+-->
+<template id="dynamic_filter_template_product_product_ambary" name="Ambary Card">
+    <t t-foreach="records" t-as="data"
+       data-number-of-elements="3"
+       data-number-of-elements-sm="1"
+       data-thumb="/theme_ambary/static/src/img/snippets_options/product_ambary.svg">
+        <t t-set="record" t-value="data['_record']"/>
+        <div class="o_ambary_product_card o_carousel_product_card card w-100 border-0 o_ambary_bg_soft">
+            <div t-if="is_sample" class="h5 o_ribbon_right bg-primary text-uppercase">Sample</div>
+            <input type="hidden" name="product-id" t-att-data-product-id="record.id"/>
+            <figure class="o_ambary_product_img ratio ratio-1x1 mb-0">
+                <img class="card-img-top rounded-0"
+                     loading="lazy"
+                     t-att-src="data['image_512']"
+                     t-att-alt="data.get('display_name')"/>
+            </figure>
+            <div class="card-body">
+                <h5 class="card-title mb-2">
+                    <a class="stretched-link"
+                       t-att-href="record.website_url"
+                       t-out="data.get('display_name')"/>
+                </h5>
+                <p t-if="data.get('description_sale')"
+                   class="card-text mb-2"
+                   t-out="data.get('description_sale')"/>
+                <div class="o_ambary_product_price">
+                    <t t-call="website_sale.price_dynamic_filter_template_product_product"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+<!--
+    Give newly dropped Products snippets the Ambary section heading.  The
+    dynamic product template above only renders the records inside the carousel;
+    the title lives in website.s_dynamic_snippet_template, outside that render
+    target.  Keep Odoo's original copy for every other dynamic-snippet type.
+
+    The title remains normal editable website content after the block is dropped,
+    so a designer can change both lines for an individual section.
+-->
+<template id="s_dynamic_snippet_products_title_ambary"
+          inherit_id="website.s_dynamic_snippet_template"
+          name="Ambary Products Title">
+    <xpath expr="//section[hasclass('s_dynamic_snippet_title')]/div[1]"
+           position="replace">
+        <div>
+            <t t-if="snippet_name == 's_dynamic_snippet_products'">
+                <h2 class="o_ambary_product_heading mb-0">Our best sellers.</h2>
+            </t>
+            <t t-else="">
+                <h4>Our latest content</h4>
+                <p class="lead">Check out what's new in our company !</p>
+            </t>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

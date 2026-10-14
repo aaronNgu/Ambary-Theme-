@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+    Category grid: heading row (title left, link right) over three square-image
+    cards.
+
+    Exists because s_three_columns has no heading row of its own, and dropping a
+    separate Text block above it means two sections stacking their own vertical
+    padding. Here the heading and the cards share one section, so one padding
+    control governs the whole block.
+
+    Measurements from the live target: section 112px top/bottom, 3 x 371px on a
+    20px gap, cards 24px radius on #DBF3F1 with a 1:1 image bleeding to the card
+    edge, title 20px/700, body 16px/400.
+-->
+<template id="s_ambary_categories" name="Category Grid">
+    <section class="s_ambary_categories o_cc o_cc2 o_colored_level pt112 pb112">
+        <div class="container">
+
+            <div class="s_ambary_categories_head d-flex flex-wrap align-items-baseline justify-content-between gap-3 mb-5">
+                <h2 class="mb-0">Everyday wellness, your way.</h2>
+                <a href="/shop" class="o_ambary_link_strong">Shop everything</a>
+            </div>
+
+            <div class="row s_nb_column_fixed g-4">
+                <div data-name="Category" class="col-lg-4">
+                    <div class="s_card o_card_img_top card h-100 my-0 border-0 o_ambary_bg_soft"
+                         data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper ratio ratio-1x1 mb-0">
+                            <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_1" alt="Daily CBD"/>
+                        </figure>
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">
+                                <a href="/shop" class="stretched-link">Daily CBD</a>
+                            </h5>
+                            <p class="card-text mb-0">Full-spectrum extracts for everyday balance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-name="Category" class="col-lg-4">
+                    <div class="s_card o_card_img_top card h-100 my-0 border-0 o_ambary_bg_soft"
+                         data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper ratio ratio-1x1 mb-0">
+                            <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_2" alt="Gummies"/>
+                        </figure>
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">
+                                <a href="/shop" class="stretched-link">Gummies</a>
+                            </h5>
+                            <p class="card-text mb-0">A convenient, fruit-forward way to take your daily serving.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-name="Category" class="col-lg-4">
+                    <div class="s_card o_card_img_top card h-100 my-0 border-0 o_ambary_bg_soft"
+                         data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper ratio ratio-1x1 mb-0">
+                            <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_3" alt="Topical Care"/>
+                        </figure>
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">
+                                <a href="/shop" class="stretched-link">Topical Care</a>
+                            </h5>
+                            <p class="card-text mb-0">Targeted salves for the places that need it most.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</template>
+
+</odoo>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+    Ambary header: announcement bar over a three-column main bar
+    (menu | centred logo | utilities).
+
+    Ships active="False" on purpose. Every header variant replaces the same
+    //header//nav node of website.layout, so exactly one may be active at a
+    time; the second one to apply would find nothing to replace and the view
+    would fail validation. Activation happens either in
+    theme.utils._theme_ambary_post_copy or through the Theme > Header >
+    Template picker (see views/snippet_options.xml).
+-->
+<template id="template_header_ambary" inherit_id="website.layout"
+          name="Ambary Header" active="False">
+    <xpath expr="//header//nav" position="replace">
+        <t t-call="website.navbar">
+            <!-- Do NOT set _navbar_expand_class here. Leaving it unset gives the
+                 navbar Bootstrap's navbar-expand-lg, and that class is the only
+                 thing that flips .navbar-nav from flex-direction:column to row.
+                 website.template_header_mobile is the one that blanks it. -->
+            <t t-set="_navbar_classes" t-valuef="o_ambary_header d-none d-lg-block p-0"/>
+
+            <div id="o_main_nav" class="o_main_nav w-100">
+
+                <!-- Announcement bar. o_header_hide_on_scroll lets it collapse
+                     away while the main bar stays pinned. -->
+                <div class="o_header_hide_on_scroll">
+                    <div aria-label="Top"
+                         class="o_ambary_topbar o_colored_level o_cc o_cc5"
+                         t-if="is_view_active('website.header_text_element')">
+                        <ul class="navbar-nav container justify-content-center mb-0">
+                            <t t-call="website.placeholder_header_text_element">
+                                <t t-set="_txt_elt_content" t-valuef="sentence"/>
+                                <t t-set="_item_class" t-valuef="d-flex align-items-center"/>
+                                <t t-set="_div_class" t-valuef="o_ambary_eyebrow"/>
+                            </t>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Main bar. o_grid_header_3_cols is Odoo's 1fr/auto/1fr grid,
+                     which is what centres the logo regardless of how wide the
+                     menu and the utilities are. -->
+                <div aria-label="Middle"
+                     class="o_ambary_mainbar container d-grid align-items-center o_grid_header_3_cols">
+
+                    <!-- Menu -->
+                    <t t-call="website.navbar_nav">
+                        <t t-set="_nav_class" t-valuef="o_ambary_nav align-items-center"/>
+                        <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                            <t t-call="website.submenu">
+                                <t t-set="item_class" t-valuef="nav-item"/>
+                                <t t-set="link_class" t-valuef="nav-link"/>
+                            </t>
+                        </t>
+                    </t>
+
+                    <!-- Brand -->
+                    <t t-call="website.placeholder_header_brand">
+                        <t t-set="_link_class" t-valuef="o_ambary_brand mx-auto p-0"/>
+                    </t>
+
+                    <!-- Utilities -->
+                    <ul class="o_ambary_utils navbar-nav flex-row align-items-center justify-content-end mb-0">
+                        <!-- "Test results" and anything else editable -->
+                        <t t-call="website.placeholder_header_call_to_action">
+                            <t t-set="_item_class" t-valuef="o_ambary_cta"/>
+                        </t>
+                        <!-- Search (icon opening a modal) -->
+                        <t t-call="website.placeholder_header_search_box"
+                           t-nocache="The searchbox should not cache previous searches.">
+                            <t t-set="_layout" t-valuef="modal"/>
+                            <t t-set="_input_classes" t-valuef="border border-end-0 p-3"/>
+                            <t t-set="_submit_classes" t-valuef="border border-start-0 px-4 bg-o-color-2"/>
+                            <t t-set="_button_classes" t-valuef="o_ambary_icon_btn text-reset"/>
+                        </t>
+                        <!-- Sign in / account -->
+                        <t t-call="portal.placeholder_user_sign_in">
+                            <t t-set="_link_class" t-valuef="o_ambary_icon_btn nav-link"/>
+                        </t>
+                        <t t-call="portal.user_dropdown">
+                            <t t-set="_icon" t-value="True"/>
+                            <t t-set="_no_caret" t-value="True"/>
+                            <t t-set="_item_class" t-valuef="dropdown"/>
+                            <t t-set="_link_class" t-valuef="o_ambary_icon_btn nav-link border-0"/>
+                            <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                        </t>
+                        <!-- Cart. website_sale injects this into Odoo's own
+                             header variants by xpathing each of them by name,
+                             so a new variant has to call it itself. -->
+                        <t t-call="website_sale.header_cart_link">
+                            <t t-set="_icon" t-value="True"/>
+                            <t t-set="_link_class" t-valuef="o_ambary_icon_btn btn position-relative p-1 text-reset"/>
+                            <t t-set="_badge_class" t-valuef="position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill"/>
+                        </t>
+                        <!-- Kept so the Theme tab toggles and any module that
+                             xpaths these anchors still find them. -->
+                        <t t-call="website.placeholder_header_language_selector">
+                            <t t-set="_btn_class" t-valuef="nav-link"/>
+                            <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                        </t>
+                        <t t-call="website.placeholder_header_social_links"/>
+                    </ul>
+                </div>
+            </div>
+        </t>
+        <!-- Odoo's mobile header, reused as-is: website_sale patches it by
+             class (o_header_mobile_buttons_wrap), so the cart comes for free. -->
+        <t t-call="website.template_header_mobile"/>
+    </xpath>
+</template>
+
+</odoo>

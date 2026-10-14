@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+    Register the Ambary header/footer in the editor's Theme tab.
+
+    The we-button itself changes nothing at install time; it is inert until a
+    designer clicks it. What makes it correct is that it is injected into
+    Odoo's *existing* we-select: customizeWebsiteViews collects the view keys
+    of every button in the same select and disables the ones not listed on the
+    button that was picked, so choosing Ambary switches Odoo's variants off and
+    choosing one of Odoo's switches Ambary off. A separate select of our own
+    would not get that mutual exclusion.
+
+    data-customize-website-variable writes header-template: 'ambary' into the
+    per-website user_values.scss, which is what lets SCSS scope itself with
+    o-website-value('header-template').
+-->
+<template id="snippet_options_ambary" inherit_id="website.snippet_options" name="Ambary Theme Options">
+
+    <xpath expr="//we-select[@data-variable='header-template']/we-button[1]" position="before">
+        <we-button title="Ambary"
+                   data-name="header_ambary_opt"
+                   data-trigger="regular_header_visibility_opt"
+                   data-customize-website-views="theme_ambary.template_header_ambary"
+                   data-customize-website-variable="'ambary'"
+                   data-img="/theme_ambary/static/src/img/header_template_ambary.svg"/>
+    </xpath>
+
+    <xpath expr="//we-select[@data-variable='footer-template']/we-button[1]" position="before">
+        <we-button title="Ambary"
+                   data-name="footer_ambary_opt"
+                   data-customize-website-views="theme_ambary.template_footer_ambary, theme_ambary.footer_copyright_ambary"
+                   data-customize-website-variable="'ambary'"
+                   data-img="/theme_ambary/static/src/img/footer_template_ambary.svg"/>
+    </xpath>
+
+</template>
+
+</odoo>

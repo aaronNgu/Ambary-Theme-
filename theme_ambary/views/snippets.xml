@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Register the theme's snippets in the editor panel, next to Odoo's own. -->
+<template id="snippets_ambary" inherit_id="website.snippets" name="Ambary Snippets">
+    <xpath expr="//t[@t-snippet='website.s_banner']" position="before">
+        <t t-snippet="theme_ambary.s_ambary_hero"
+           string="Ambary Hero"
+           group="intro"
+           t-thumbnail="/website/static/src/img/snippets_thumbs/s_banner.svg">
+            <keywords>hero, banner, image, headline, intro, landing, shop</keywords>
+        </t>
+        <t t-snippet="theme_ambary.s_ambary_intro"
+           string="Ambary Intro"
+           group="intro"
+           t-thumbnail="/theme_ambary/static/src/img/snippets_thumbs/s_ambary_intro.svg">
+            <keywords>intro, story, nursery, growers, greenhouse, heritage, about</keywords>
+        </t>
+    </xpath>
+
+    <xpath expr="//t[@t-snippet='website.s_three_columns']" position="before">
+        <t t-snippet="theme_ambary.s_ambary_categories"
+           string="Category Grid"
+           group="columns"
+           t-thumbnail="/theme_ambary/static/src/img/snippets_thumbs/s_ambary_categories.svg">
+            <keywords>categories, columns, cards, shop, products, grid, collection, range</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>
