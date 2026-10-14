@@ -4,7 +4,7 @@
     'summary': "Brand header, footer and design tokens for Ambary Gardens",
     'author': "Aaron Ngu",
     'category': 'Theme/Creative',
-    'version': '18.0.1.0.6',
+    'version': '18.0.1.0.7',
     'license': 'LGPL-3',
     # website_sale is a hard dependency because the header renders the cart.
     # Split this into theme_ambary + theme_ambary_sale if the theme ever has to
@@ -15,6 +15,7 @@
         'views/footer.xml',
         'views/snippets/s_ambary_hero.xml',
         'views/snippets/s_ambary_intro.xml',
+        'views/snippets/s_ambary_experience.xml',
         'views/snippets/s_ambary_categories.xml',
         'views/snippets/dynamic_filter_template_product_product_ambary.xml',
         'views/snippets.xml',

@@ -348,6 +348,128 @@ h6, .h6 {
 }
 
 //------------------------------------------------------------------------------
+// Experience (s_ambary_experience)
+//------------------------------------------------------------------------------
+// Experience: normal document flow, with editable text and Bootstrap columns.
+.s_ambary_experience {
+    .s_ambary_experience_actions .btn-secondary {
+        background-color: var(--ambary-cream);
+        border-color: var(--ambary-cream);
+        color: var(--ambary-deep-teal);
+        font-weight: 700;
+        padding: .875rem 1.5rem;
+
+        &:hover, &:focus-visible {
+            background-color: var(--ambary-sand);
+            border-color: var(--ambary-sand);
+        }
+    }
+
+    .s_ambary_experience_heading {
+        max-width: 12ch;
+        font-size: clamp(2.5rem, 4.2vw, 3.75rem);
+        line-height: 1.05;
+    }
+
+    .s_ambary_experience_accent,
+    .s_ambary_experience_number {
+        color: var(--ambary-sand);
+    }
+
+    .s_ambary_experience_lead,
+    .s_ambary_experience_description,
+    .s_ambary_experience_caption,
+    .s_ambary_experience_location {
+        color: inherit;
+        opacity: .7;
+    }
+
+    .s_ambary_experience_lead {
+        font-size: 1.125rem;
+        line-height: 1.75;
+    }
+
+    .s_ambary_experience_stats {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: calc(var(--bs-gutter-x, 1.5rem) / 2);
+            right: calc(var(--bs-gutter-x, 1.5rem) / 2);
+            border-top: 1px solid currentColor;
+            opacity: .18;
+            pointer-events: none;
+        }
+    }
+
+    .s_ambary_experience_stat,
+    .s_ambary_experience_step_heading,
+    .s_ambary_experience_number {
+        font-family: $h2-font-family;
+        font-weight: $headings-font-weight;
+        line-height: 1.15;
+    }
+
+    .s_ambary_experience_stat {
+        font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+        letter-spacing: -.035em;
+    }
+
+    .s_ambary_experience_caption,
+    .s_ambary_experience_location {
+        font-size: .875rem;
+        line-height: 1.6;
+    }
+
+    .s_ambary_experience_step {
+        display: grid;
+        grid-template-columns: 3rem minmax(0, 1fr);
+        gap: 2rem;
+        padding-block: 2.5rem;
+        border-top: 1px solid rgba($o-ambary-cream, .18);
+
+        &:last-child {
+            border-bottom: 1px solid rgba($o-ambary-cream, .18);
+        }
+    }
+
+    .s_ambary_experience_number {
+        padding-top: .25rem;
+        font-size: 1.125rem;
+        letter-spacing: .08em;
+    }
+
+    .s_ambary_experience_step_heading {
+        font-size: 2rem;
+        letter-spacing: -.02em;
+        margin-bottom: .75rem;
+    }
+
+    .s_ambary_experience_summary {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .s_ambary_experience_description {
+        font-size: 1rem;
+        line-height: 1.85;
+    }
+
+    @media (max-width: 575.98px) {
+        .s_ambary_experience_step {
+            grid-template-columns: 2rem minmax(0, 1fr);
+            gap: 1rem;
+            padding-block: 2rem;
+        }
+    }
+}
+
+//------------------------------------------------------------------------------
 // Category grid (s_ambary_categories)
 //------------------------------------------------------------------------------
 .s_ambary_categories {
