@@ -6,6 +6,21 @@ class ThemeUtils(models.AbstractModel):
     _inherit = 'theme.utils'
 
     @api.model
+    def _reset_default_config(self):
+        """Disable Ambary's layout before Odoo restores its default variants.
+
+        Theme removal resets the default configuration before unlinking the
+        outgoing theme's views. Ambary's variants are not in Odoo's built-in
+        template lists, so leaving them active conflicts with the default
+        header/footer during that reset. disable_view only affects copies on
+        the current website, including when another website keeps this theme.
+        """
+        self.disable_view('theme_ambary.template_header_ambary')
+        self.disable_view('theme_ambary.template_footer_ambary')
+        self.disable_view('theme_ambary.footer_copyright_ambary')
+        return super()._reset_default_config()
+
+    @api.model
     def _theme_ambary_post_copy(self, mod):
         """Pick the Ambary header/footer the first time the theme is applied.
 
