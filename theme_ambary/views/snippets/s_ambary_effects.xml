@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ambary_effects" name="Shop by Effect">
+    <section class="s_ambary_effects o_cc o_cc2 o_colored_level pt112 pb112"
+             data-snippet="s_ambary_effects" data-name="Shop by Effect">
+        <div class="container">
+            <p class="o_ambary_eyebrow s_ambary_effects_eyebrow mb-3">Shop by effect</p>
+            <div class="s_ambary_effects_head d-flex flex-wrap align-items-baseline justify-content-between gap-3 mb-5">
+                <h2 class="mb-0">Find what fits your day.</h2>
+                <a href="/shop" class="o_ambary_link_strong">Shop everything <span class="ms-2" aria-hidden="true">↗</span></a>
+            </div>
+            <div class="row s_nb_column_fixed g-4">
+                <div class="col-lg-4" data-name="Effect">
+                    <div class="s_card s_ambary_effects_card card h-100 my-0" data-snippet="s_card" data-name="Card" data-vxml="001">
+                        <figure class="s_ambary_effects_image mb-0">
+                            <img class="img-fluid" src="/theme_ambary/static/src/img/effects/rest.webp" alt="Crescent moon, cloud and stars" loading="lazy" width="1024" height="1024"/>
+                        </figure>
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Rest</h3>
+                            <p class="card-text">CBD and CBN for winding down at night.</p>
+                            <a href="/shop?search=&amp;order=&amp;attribute_value=21-117&amp;attribute_value=21-122" class="o_ambary_link_strong stretched-link mt-auto align-self-start">Shop rest <span class="ms-2" aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-name="Effect">
+                    <div class="s_card s_ambary_effects_card card h-100 my-0" data-snippet="s_card" data-name="Card" data-vxml="001">
+                        <figure class="s_ambary_effects_image s_ambary_effects_image_sand mb-0">
+                            <img class="img-fluid" src="/theme_ambary/static/src/img/effects/recover.webp" alt="Exercise mat and water bottle in front of mountains" loading="lazy" width="1024" height="1024"/>
+                        </figure>
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Recover</h3>
+                            <p class="card-text">Salves and creams for post-workout muscle care.</p>
+                            <a href="/shop?search=&amp;order=&amp;attribute_value=21-116&amp;attribute_value=21-123" class="o_ambary_link_strong stretched-link mt-auto align-self-start">Shop recover <span class="ms-2" aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-name="Effect">
+                    <div class="s_card s_ambary_effects_card card h-100 my-0" data-snippet="s_card" data-name="Card" data-vxml="001">
+                        <figure class="s_ambary_effects_image mb-0">
+                            <img class="img-fluid" src="/theme_ambary/static/src/img/effects/ease.webp" alt="Steaming mug beneath a rising sun" loading="lazy" width="1024" height="1024"/>
+                        </figure>
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Ease</h3>
+                            <p class="card-text">Full-spectrum CBD for your everyday routine.</p>
+                            <a href="/shop?search=&amp;order=&amp;attribute_value=21-116&amp;attribute_value=21-119" class="o_ambary_link_strong stretched-link mt-auto align-self-start">Shop ease <span class="ms-2" aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

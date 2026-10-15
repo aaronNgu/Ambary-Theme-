@@ -503,6 +503,74 @@ h6, .h6 {
     }
 }
 
+// Shop by Effect: real, replaceable images in normal document flow.
+.s_ambary_effects {
+    .s_ambary_effects_eyebrow {
+        color: var(--ambary-terracotta);
+    }
+
+    .s_ambary_effects_card {
+        overflow: hidden;
+        border: 1px solid rgba($o-ambary-deep-teal, .24);
+        border-radius: 1.75rem;
+        background-color: transparent;
+        color: inherit;
+    }
+
+    .s_ambary_effects_image {
+        position: relative;
+        aspect-ratio: 1.45;
+        background-color: var(--ambary-mist-bg);
+
+        &.s_ambary_effects_image_sand {
+            background-color: var(--ambary-sand);
+        }
+
+        img {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .card-body {
+        padding: 2rem 1.75rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: .75rem;
+    }
+
+    .card-text {
+        color: var(--ambary-muted);
+        font-size: .875rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    .o_ambary_link_strong {
+        color: inherit;
+        text-underline-offset: .25em;
+    }
+
+    // Allow image replacement and text selection in the website editor.
+    body.editor_enable & .stretched-link::after {
+        pointer-events: none;
+    }
+
+    @media (max-width: 767.98px) {
+        .s_ambary_effects_head {
+            flex-direction: column;
+            align-items: flex-start !important;
+        }
+    }
+}
+
 // Small, heavy, underlined text link. Used for "Shop everything" and anywhere
 // else a section needs a secondary action beside its heading.
 .o_ambary_link_strong {

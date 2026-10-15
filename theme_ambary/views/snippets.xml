@@ -19,6 +19,12 @@
     </xpath>
 
     <xpath expr="//t[@t-snippet='website.s_three_columns']" position="before">
+        <t t-snippet="theme_ambary.s_ambary_effects"
+           string="Shop by Effect"
+           group="columns"
+           t-thumbnail="/theme_ambary/static/src/img/snippets_thumbs/s_ambary_effects.svg">
+            <keywords>effect, rest, recover, ease, shop, cards, wellness</keywords>
+        </t>
         <t t-snippet="theme_ambary.s_ambary_experience"
            string="Ambary Experience"
            group="columns"
