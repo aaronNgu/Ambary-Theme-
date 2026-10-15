@@ -32,7 +32,7 @@
                         </figure>
                         <div class="card-body">
                             <h5 class="card-title mb-2">
-                                <a href="/shop" class="stretched-link">Daily CBD</a>
+                                <a href="/shop?search=&amp;order=&amp;tags=1" class="stretched-link">Daily CBD</a>
                             </h5>
                             <p class="card-text mb-0">Full-spectrum extracts for everyday balance.</p>
                         </div>
@@ -46,7 +46,7 @@
                         </figure>
                         <div class="card-body">
                             <h5 class="card-title mb-2">
-                                <a href="/shop" class="stretched-link">Gummies</a>
+                                <a href="/shop?search=&amp;order=&amp;tags=2" class="stretched-link">Gummies</a>
                             </h5>
                             <p class="card-text mb-0">A convenient, fruit-forward way to take your daily serving.</p>
                         </div>
@@ -60,7 +60,7 @@
                         </figure>
                         <div class="card-body">
                             <h5 class="card-title mb-2">
-                                <a href="/shop" class="stretched-link">Topical Care</a>
+                                <a href="/shop?search=&amp;order=&amp;tags=4" class="stretched-link">Topical Care</a>
                             </h5>
                             <p class="card-text mb-0">Targeted salves for the places that need it most.</p>
                         </div>
