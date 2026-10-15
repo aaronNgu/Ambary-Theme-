@@ -6,29 +6,11 @@
         <div class="container">
             <div class="row gy-5">
                 <div class="col-lg-5" data-name="Introduction">
-                    <p class="o_ambary_eyebrow s_ambary_experience_accent mb-4">Why Ambary · The Ambary Experience</p>
+                    <p class="o_ambary_eyebrow s_ambary_experience_accent mb-4">Why Ambary</p>
                     <h2 class="s_ambary_experience_heading mb-4">From our greenhouse to your house.</h2>
-                    <p class="s_ambary_experience_lead">We control every step, from the seed to the jar on your shelf. Nothing is outsourced, so we know exactly what goes into every product.</p>
-                    <div class="s_ambary_experience_stats row gy-4" data-name="Stats">
-                        <div class="col-12 col-sm-4" data-name="Stat">
-                            <p class="s_ambary_experience_stat mb-2">25 yrs</p>
-                            <p class="s_ambary_experience_caption mb-0">combined grow experience</p>
-                        </div>
-                        <div class="col-12 col-sm-4" data-name="Stat">
-                            <p class="s_ambary_experience_stat mb-2">Weekly</p>
-                            <p class="s_ambary_experience_caption mb-0">fresh harvest rotation</p>
-                        </div>
-                        <div class="col-12 col-sm-4" data-name="Stat">
-                            <p class="s_ambary_experience_stat mb-2">By hand</p>
-                            <p class="s_ambary_experience_caption mb-0">every plant cut and hung to dry</p>
-                        </div>
-                    </div>
+                    <p class="s_ambary_experience_lead">We grow the hemp and make the products ourselves, keeping care and attention at every step.</p>
                     <div class="s_ambary_experience_actions d-flex flex-wrap align-items-center gap-4 mt-5">
                         <a href="/aboutus" class="btn btn-secondary rounded-pill">See how it's made <i class="fa fa-arrow-right ms-2" aria-hidden="true"/></a>
-                        <p class="s_ambary_experience_location d-flex align-items-start gap-2 mb-0">
-                            <i class="fa fa-map-marker mt-1" aria-hidden="true"/>
-                            <span>Grown in Kittredge, just west of Denver</span>
-                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1" data-name="Process">
@@ -36,25 +18,26 @@
                         <li class="s_ambary_experience_step" data-name="Process Step">
                             <span class="s_ambary_experience_number">01</span>
                             <div>
-                                <h3 class="s_ambary_experience_step_heading">The grow</h3>
-                                <p class="s_ambary_experience_summary">Our own strain, greenhouse grown year-round.</p>
-                                <p class="s_ambary_experience_description mb-0">Years of seed selection produced our own high-CBD strain, under 0.3% THC. A grow staff with 25 years of combined experience tends it by hand in our Kittredge greenhouses, without commercial pesticides.</p>
+                                <h3 class="s_ambary_experience_step_heading">Grown in our own greenhouses</h3>
+                                <p class="s_ambary_experience_description mb-0">Our team grows hemp year-round in Kittredge, Colorado, carefully managing the growing conditions at every stage.</p>
                             </div>
                         </li>
                         <li class="s_ambary_experience_step" data-name="Process Step">
                             <span class="s_ambary_experience_number">02</span>
                             <div>
-                                <h3 class="s_ambary_experience_step_heading">The harvest</h3>
-                                <p class="s_ambary_experience_summary">Cut and hung by hand, never by machine.</p>
-                                <p class="s_ambary_experience_description mb-0">Every plant is handled, cut, and hung to dry by hand on a weekly rotation. We use no machines or harvesters anywhere in our growing or harvesting.</p>
+                                <h3 class="s_ambary_experience_step_heading">Harvested with care</h3>
+                                <p class="s_ambary_experience_description mb-0">Each plant is cut and hung to dry by hand. With fresh harvests every week, that hands-on attention continues throughout the year.</p>
                             </div>
                         </li>
                         <li class="s_ambary_experience_step" data-name="Process Step">
                             <span class="s_ambary_experience_number">03</span>
                             <div>
-                                <h3 class="s_ambary_experience_step_heading">The lab</h3>
-                                <p class="s_ambary_experience_summary">Made in-house, from our own oil.</p>
-                                <p class="s_ambary_experience_description mb-0">Our lab team formulates, pours, and tests every tincture, gummy, and topical using only the hemp oil we grow. Each batch is serialized and sent for independent verification.</p>
+                                <h3 class="s_ambary_experience_step_heading">Made by us. Independently tested.</h3>
+                                <p class="s_ambary_experience_description mb-0">Our lab team creates our products using oil extracted from our own hemp. Every batch is independently tested for cannabinoid potency, with results available for you to review.</p>
+                                <div class="s_ambary_experience_links d-flex flex-wrap gap-4 mt-4">
+                                    <a class="o_ambary_link_strong" href="/the-lab">Our lab <span class="ms-2" aria-hidden="true">↗</span></a>
+                                    <a class="o_ambary_link_strong" href="/test-results">Test results <span class="ms-2" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
                     </ol>

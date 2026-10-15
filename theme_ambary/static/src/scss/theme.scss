@@ -446,7 +446,12 @@ h6, .h6 {
     .s_ambary_experience_step_heading {
         font-size: 2rem;
         letter-spacing: -.02em;
-        margin-bottom: .75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .s_ambary_experience_links a {
+        color: inherit;
+        text-underline-offset: .25em;
     }
 
     .s_ambary_experience_summary {
