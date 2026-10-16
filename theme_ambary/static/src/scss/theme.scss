@@ -143,6 +143,19 @@ h6, .h6 {
     font-size: $o-ambary-ui-size;
     line-height: $o-ambary-footer-line-height;
 
+    .o_ambary_footer_logo {
+        max-width: 11.875rem;
+
+        img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 5rem;
+            object-fit: contain;
+        }
+    }
+
     .o_ambary_footer_blurb {
         max-width: 26rem;
         margin-bottom: 1.5rem;

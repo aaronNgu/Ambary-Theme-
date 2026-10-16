@@ -25,12 +25,16 @@
 
                         <!-- Brand block -->
                         <div class="col-lg-5">
+                            <!-- Use the image controller instead of an embedded binary
+                                 t-field. The website editor can otherwise save the
+                                 base64 logo value as text when serializing this footer. -->
                             <a href="/" class="o_ambary_footer_logo d-inline-block mb-4">
-                                <span t-field="website.logo"
-                                      t-options="{'widget': 'image', 'width': 190, 'height': 80}"
-                                      role="img"
-                                      t-att-aria-label="'Logo of %s' % website.name"
-                                      t-att-title="website.name"/>
+                                <img t-att-src="'/web/image/website/%s/logo' % website.id"
+                                     class="img-fluid"
+                                     width="190" height="80"
+                                     role="img"
+                                     t-att-alt="'Logo of %s' % website.name"
+                                     t-att-title="website.name"/>
                             </a>
                             <p class="o_ambary_footer_blurb">Premium CBD products grown and made with care in Kittredge, Colorado.</p>
                             <p class="o_ambary_footer_address mb-0">26479 State Highway 74 &#183; Kittredge, CO 80457</p>
